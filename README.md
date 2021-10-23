@@ -1,0 +1,2 @@
+# Projet Colle Ocaml
+ In this algorithm, you live the hard life of a Préparationnaire for the terrible test of the Khôlle (or the Colle). This test consists of an oral exercise to prepare the student for the oral exams of the Grandes Ecoles. You will be confronted by a "Colleur" who will confront you with your weaknesses and show you how great they are. If you take part in this exercise, I wish you good luck and do not forget that SUP3 will triumph. 
