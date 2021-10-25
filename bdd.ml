@@ -7,5 +7,6 @@ let hello = [
   "take place right now !!!";
   "You are late !!!";
   "I'm angry today, good luck !" ; 
-  "Hi my name is Adrien " 
+  "Hi my name is Adrien ";
+  "salut" 
 ]
