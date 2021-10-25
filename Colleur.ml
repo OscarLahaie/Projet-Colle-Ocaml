@@ -10,6 +10,10 @@ let rec contient_element_caractere phrase liste =
   | _ :: q -> contient_element_caractere phrase q 
 ;;
 
+let rec minuscule phrase =
+  String.lowercase_ascii phrase
+;;
+
 let rec espace_autour partie_de_phrase liste =
   match liste with
   | [] -> partie_de_phrase
@@ -26,6 +30,7 @@ let espace_symbols_phrase phrase =
 ;;
 
 let decompose_phrase phrase =
+  let phrase = minuscule phrase in
   let rec decompose_aux phrase2 = 
     match phrase2 with
     | [] -> []
