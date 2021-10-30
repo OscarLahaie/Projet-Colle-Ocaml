@@ -31,12 +31,29 @@ let espace_symbols_phrase phrase =
 
 let decompose_phrase phrase =
   let phrase = minuscule phrase in
-  let rec decompose_aux phrase2 = 
-    match phrase2 with
-    | [] -> []
-    | t :: q when t = "" -> decompose_aux q
-    | t :: q -> t :: decompose_aux q
-  in decompose_aux (String.split_on_char ' ' (espace_symbols_phrase phrase))
+    let rec decompose_aux phrase2 = 
+      match phrase2 with
+      | [] -> []
+      | t :: q when t = "" -> decompose_aux q
+      | t :: q -> t :: decompose_aux q
+    in decompose_aux (String.split_on_char ' ' (espace_symbols_phrase phrase))
 ;;
 
 (*Fin des fonctions de décompositions*)
+
+(*Début des fonctions d'analyses*)
+
+let rec count_elements liste element = 
+  match liste with
+  | [] -> 0
+  | t :: q when t = element -> 1 + count_elements q element
+  | _ :: q -> count_elements q element 
+;;
+
+let rec plusieurs_symbols liste =
+  match ponctuation_string with
+  | []  -> false
+  | t :: q -> (count_elements liste t >= 2) || plusieurs_symbols q 
+;;
+
+(*Fin des fonctions d'analyses*)
