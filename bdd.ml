@@ -73,7 +73,7 @@ let not_good = [
   "You have to focus on the subject";
   "Do you really understand the question ?";
   "Not great ...";
-  "You have to learn you lesson"
+  "You have to learn your lesson"
 ];;
 
 let question_answer = [
