@@ -49,3 +49,8 @@ let not_good = [
   "Not great ...";
   "You have to learn you lesson"
 ]
+
+let question_answer = [
+  [["Une question"]; ["mots"; "clefs"]];
+  
+]
