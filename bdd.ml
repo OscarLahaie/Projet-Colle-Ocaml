@@ -10,12 +10,38 @@ let hello = [
   "Quick we are already late !"
 ];;
 
+let goodbye = [
+  "Bye !";
+  "Goodbye !";
+  "See you soon !";
+  "Good evening !"
+];;
+
+let phrase_de_fin = [
+  "goodbye";
+  "aurevoir";
+  "fin";
+  "arrete";
+  "arrête";
+  "stop";
+  "quit";
+  "bye";
+];;
+
+let banning_phrase = [
+  "I never want to see you again !";
+  "I never saw someone that bad !";
+  "You should be working in a factory";
+  "Did you already thought about leaving ?";
+  ""
+];;
+
 let demande_nom = [
   "What is your name ?";
   "Tell me your name please";
   "How can i call you ?";
   "Hmm you are ?"
-]
+];;
 
 let punchline = [
   "You are really really bad !";
@@ -23,7 +49,7 @@ let punchline = [
   "I know why the Maths level is so low in France it is because of you";
   "Are you really coming during the lessons";
   "Why are you here ! You should be in a Factory !"
-]
+];;
 
 let good = [
   "It is perfect !";
@@ -31,7 +57,7 @@ let good = [
   "Perfect !";
   "Okay nice !";
   "It is totally accurate !"
-]
+];;
 
 let medium = [
   "It is okay !";
@@ -39,7 +65,7 @@ let medium = [
   "Okay";
   "Maybe ...";
   "Not that bad !"
-]
+];;
 
 let not_good = [
   "It is false !";
@@ -48,9 +74,9 @@ let not_good = [
   "Do you really understand the question ?";
   "Not great ...";
   "You have to learn you lesson"
-]
+];;
 
 let question_answer = [
   [["Une question"]; ["mots"; "clefs"]];
   
-]
+];;
