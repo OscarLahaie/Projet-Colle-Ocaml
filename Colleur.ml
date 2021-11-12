@@ -32,12 +32,16 @@ let espace_symbols_phrase phrase =
 
 let decompose_phrase phrase =
   let phrase = minuscule phrase in
+  if phrase <> ""
+    then
     let rec decompose_aux phrase2 = 
       match phrase2 with
       | [] -> []
       | t :: q when t = "" -> decompose_aux q
       | t :: q -> t :: decompose_aux q
     in decompose_aux (String.split_on_char ' ' (espace_symbols_phrase phrase))
+  else 
+    [""]
 ;;
 
 (*Fin des fonctions de décompositions*)
@@ -155,7 +159,9 @@ let questionne () =
 ;;
 
 let colleur () =
+  let () = print_newline () in
   let () = bonjour () in
+  let () = print_newline () in
   let rec boucle_interactive () =
     questionne ();
     boucle_interactive ()
