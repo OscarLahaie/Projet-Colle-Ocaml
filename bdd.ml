@@ -77,14 +77,14 @@ let not_good = [
 ];;
 
 let question_answer = [
- [ ["Witch condition X need for the natural logarithm apply to X  to be definined ?"] ; ["stricly" ;  "positive" ;  "reals" ; ">" ; "0" ; "x" ] ] ;
- [ ["Can you give me the shortest value of the periodicity of cosine ?"]  ; ["2" ; "two" ; "pi" ; "π" ] ] ;
- [ ["Is the derivative of a function is necessarily continuous ?" ; "binaire"] ; ["no" ; "not" ; "ain't" ; "necesseraly" ; "depending"]];
- [ ["Is the hyperbolic cosine an pair function ?" ; "binaire"] ; ["yes" ; "yeah" ; "indeed" ; "in" ; "fact" ; "it" ; "is"] ] ;
- [ ["Is every function own a unique primite ?" ; "binaire"] ; ["no" ; "not" ; "ain't" ; "necesseraly"]] ;
- [ ["Can you give precise definition a what a wave is ?"] ; ["energy" ;  "displacement" ; "without" ; "matter"; "displacement"] ] ;
- [ ["Is the celerity of light the same in any environment ?" ; "binaire"] ; ["no" ; "not" ; "ain't" ; "necesseraly"] ] ;
- [ ["Can you give me one condition required for interference to append ?"] ; ["same" ; "source" ; "light" ; "magnitude" ; "orginal" ; "phase"] ] ;
- [ ["Can you give the spacial equivalent of the signal period ?"] ; ["wavelength" ; "lambda"] ]  ;
- [ ["Can you give me the shortest value of the periodicity of the phase of a signal ?"] ; ["2" ; "two" ; "pi" ; "π"] ] 
+ [ ["Witch condition X need for the natural logarithm apply to X  to be definined ?"; "(Feel free to speak)"] ; ["stricly" ;  "positive" ;  "reals" ; ">" ; "0" ; "x" ] ] ;
+ [ ["Can you give me the shortest value of the periodicity of cosine ?"; "(Feel free to speak)"]  ; ["2" ; "two" ; "pi" ; "π" ] ] ;
+ [ ["Is the derivative of a function is necessarily continuous ?" ; "(yes or no)"] ; ["no" ; "not" ; "ain't" ; "necesseraly" ; "depending"]];
+ [ ["Is the hyperbolic cosine an pair function ?" ; "(yes or no)"] ; ["yes" ; "yeah" ; "indeed" ; "in" ; "fact" ; "it" ; "is"] ] ;
+ [ ["Is every function own a unique primite ?" ; "(yes or no)"] ; ["no" ; "not" ; "ain't" ; "necesseraly"]] ;
+ [ ["Can you give precise definition a what a wave is ?"; "(Feel free to speak)"] ; ["energy" ;  "displacement" ; "without" ; "matter"; "displacement"] ] ;
+ [ ["Is the celerity of light the same in any environment ?" ; "(yes or no)"] ; ["no" ; "not" ; "ain't" ; "necesseraly"] ] ;
+ [ ["Can you give me one condition required for interference to append ?"; "(Feel free to speak)"] ; ["same" ; "source" ; "light" ; "magnitude" ; "orginal" ; "phase"] ] ;
+ [ ["Can you give the spacial equivalent of the signal period ?"; "(Feel free to speak)"] ; ["wavelength" ; "lambda"] ]  ;
+ [ ["Can you give me the shortest value of the periodicity of the phase of a signal ?"; "(Feel free to speak)"] ; ["2" ; "two" ; "pi" ; "π"] ] 
  ] ;; 
