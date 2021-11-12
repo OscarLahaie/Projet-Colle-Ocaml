@@ -79,6 +79,20 @@ let rec contient_element liste element =
   | t :: q -> contient_element q element
 ;;
 
+let rec contient_tout phrase mots_clefs = 
+  match mots_clefs with
+  | [] -> true
+  | t :: q when contient_element phrase t -> true && contient_tout phrase q
+  | _ -> false
+;;
+
+let rec contient_partiel phrase mots_clefs =
+  match mots_clefs with
+  | [] -> false
+  | t :: q when contient_element phrase t -> true || contient_partiel phrase q
+  | _ :: q -> contient_partiel phrase q
+;;
+
 (*Fin Divers*)
 
 (*Système*)
@@ -103,6 +117,14 @@ let renvoie () =
   message (element_hasard banning_phrase)
 ;;
 
+let afficher_question liste = 
+  let question_phrases = List.hd liste in 
+  let phrase = List.hd question_phrases in
+  let aux = List.nth question_phrases 1 in
+  let () = message (phrase) in 
+  message (aux)
+;;
+
 let fin phrase =
   let rec fin_aux fins =
   match fins with
@@ -112,24 +134,30 @@ let fin phrase =
   in fin_aux phrase_de_fin
 ;;
 
-let repond_au_patient reponse =
-  let phrase = decompose_phrase reponse in
+let questionne () =
+  let question = (element_hasard question_answer) in
+  let () = afficher_question question in
+  let phrase = decompose_phrase (ecoute_le_patient ()) in
   if fin phrase then
     raise Fini
   else
-    (* ToDo : supprimer la ligne suivante et décommenter ce qui suit *)
-    let reponses_possibles = ["I can't speak yet..."] in
+    
+    let reponse = 
+      if contient_tout phrase (List.nth question 1)
+      then element_hasard good
+    else if contient_partiel phrase (List.nth question 1)
+      then element_hasard medium
+    else element_hasard not_good
+    in
     let () = print_newline () in
-    let () = message (List.hd reponses_possibles) in
+    let () = message (reponse) in
     print_newline ()
 ;;
 
 let colleur () =
   let () = bonjour () in
-  let () = message (element_hasard demande_nom) in
-  let nom = ecoute_le_patient () in
   let rec boucle_interactive () =
-    repond_au_patient (ecoute_le_patient ());
+    questionne ();
     boucle_interactive ()
   in
   try
