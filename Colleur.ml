@@ -1,3 +1,4 @@
+#use "bdd.ml"
 (* Début des fonctions de décompositions *)
 
 let ponctuation_char = [' '; '\n'; '.'; ','; ';'; '-'; '!'; '?'];;
