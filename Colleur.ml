@@ -97,10 +97,17 @@ let rec contient_partiel phrase mots_clefs =
   | _ :: q -> contient_partiel phrase q
 ;;
 
+let rec supprime_element liste element =
+  match liste with
+  | [] -> []
+  | t :: q when t = element -> q
+  | t :: q -> t :: (supprime_element q element)
+;;
+
 (*Fin Divers*)
 
 (*Système*)
-exception Fini;;
+exception Fini of int;;
 exception Ban;;
 let ecoute_le_patient () =
   let () = print_string ">> " in
@@ -113,8 +120,9 @@ let bonjour () =
   message (element_hasard hello)
 ;;
 
-let au_revoir () =
-  message (element_hasard goodbye)
+let au_revoir note =
+  let () = message("Your score is : " ^ (string_of_int note) ^ "/20.")
+  in message (element_hasard goodbye)
 ;;
 
 let renvoie () =
@@ -138,50 +146,58 @@ let fin phrase =
   in fin_aux phrase_de_fin
 ;;
 
-let questionne () =
-  let question = (element_hasard question_answer) in
+let questionne question note=
   let () = afficher_question question in
   let phrase = decompose_phrase (ecoute_le_patient ()) in
   if fin phrase then
-    raise Fini
+    raise (Fini note)
   else
     
-    let reponse = 
+    let couple = 
       if contient_tout phrase (List.nth question 1)
-      then element_hasard good
-    else if contient_partiel phrase (List.nth question 1)
-      then element_hasard medium
-    else element_hasard not_good
+        then (element_hasard good, 2)
+      else if contient_partiel phrase (List.nth question 1)
+        then (element_hasard medium, 1)
+      else
+        (element_hasard not_good, 0)
     in
+    let (reponse, points) = couple in
     let () = print_newline () in
     let () = message (reponse) in
-    print_newline ()
-;;
-
-let colleur () =
-  let () = print_newline () in
-  let () = bonjour () in
-  let () = print_newline () in
-  let rec boucle_interactive () =
-    questionne ();
-    boucle_interactive ()
-  in
-  try
-    boucle_interactive ()
-  with
-  | Fini -> au_revoir ()
-  | Ban -> renvoie ()
-  | End_of_file | Sys.Break ->
-     let () = message "\n\n\nYou could be polite and say goodbye to me ...\n\n\n" in
-     au_revoir ()
-;;
-
-if !Sys.interactive then
-  ()
-else
-  let () = Sys.catch_break true in
-  let () = colleur () in
-  exit 0
-;;
-
-(*Fin Système*)
+    let () = print_newline () in
+    points
+  ;;
+  
+  let colleur () =
+    let () = print_newline () in
+    let () = bonjour () in
+    let () = print_newline () in
+    let rec boucle_interactive nb_questions questions note =
+      if (nb_questions > 0) 
+      then
+        let question = (element_hasard question_answer) in
+        let points = questionne question note in
+        boucle_interactive (nb_questions - 1) (supprime_element questions question) (note + points)
+      else
+        au_revoir (note) 
+    in
+  
+    try
+      boucle_interactive 10 question_answer 0
+    with
+    | Fini note -> au_revoir (note)
+    | Ban -> renvoie ()
+    | End_of_file | Sys.Break ->
+       let () = message "\n\n\nYou could be polite and say goodbye to me ...\n\n\n" in
+       au_revoir (0)
+  ;;
+  
+  if !Sys.interactive then
+    ()
+  else
+    let () = Sys.catch_break true in
+    let () = colleur () in
+    exit 0
+  ;;
+  
+  (*Fin Système*)
