@@ -66,6 +66,7 @@ let rec plusieurs_symbols liste =
 (*Divers*)
 
 let element_hasard liste =
+  let () = Random.self_init () in
   let index = Random.int (List.length liste) in
   let rec pick liste index =
     match liste with
