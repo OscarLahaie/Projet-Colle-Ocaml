@@ -1,6 +1,6 @@
 #use "bdd.ml"
 (* Début des fonctions de décompositions *)
-
+ 
 let ponctuation_char = [' '; '\n'; '.'; ','; ';'; '-'; '!'; '?'];;
 let ponctuation_string = [" "; "\n"; "."; ","; ";"; "-"; "!"; "?"];;
 
@@ -105,6 +105,14 @@ let rec supprime_element liste element =
   | t :: q -> t :: (supprime_element q element)
 ;;
 
+let rec remplacer_prenom prenom phrase =
+    match (String.sub phrase 0 1) with
+    | partie when partie = "$" -> prenom ^ (String.sub phrase 1 (String.length phrase - 1)) 
+    | partie when (String.length phrase) = 1 -> partie
+    | partie -> partie ^  remplacer_prenom prenom (String.sub phrase 1 (String.length phrase - 1)) 
+;;
+
+
 (*Fin Divers*)
 
 (*Système*)
@@ -121,9 +129,13 @@ let bonjour () =
   message (element_hasard hello)
 ;;
 
-let au_revoir note =
+let demande_prenom () = 
+  let () = message(element_hasard demande_nom) in
+  ecoute_le_patient()
+
+let au_revoir prenom note =
   let () = message("Your score is : " ^ (string_of_int note) ^ "/20.")
-  in message (element_hasard goodbye)
+  in message (remplacer_prenom prenom (element_hasard goodbye))
 ;;
 
 let renvoie () =
@@ -147,7 +159,7 @@ let fin phrase =
   in fin_aux phrase_de_fin
 ;;
 
-let questionne question note=
+let questionne question note prenom=
   let () = afficher_question question in
   let phrase = decompose_phrase (ecoute_le_patient ()) in
   if fin phrase then
@@ -156,11 +168,11 @@ let questionne question note=
     
     let couple = 
       if contient_tout phrase (List.nth question 1)
-        then (element_hasard good, 2)
+        then (remplacer_prenom prenom (element_hasard good), 2)
       else if contient_partiel phrase (List.nth question 1)
-        then (element_hasard medium, 1)
+        then (remplacer_prenom prenom (element_hasard medium), 1)
       else
-        (element_hasard not_good, 0)
+        (remplacer_prenom prenom (element_hasard not_good), 0)
     in
     let (reponse, points) = couple in
     let () = print_newline () in
@@ -172,25 +184,26 @@ let questionne question note=
   let colleur () =
     let () = print_newline () in
     let () = bonjour () in
+    let prenom = demande_prenom () in
     let () = print_newline () in
-    let rec boucle_interactive nb_questions questions note =
+    let rec boucle_interactive nb_questions questions prenom note =
       if (nb_questions > 0) 
       then
         let question = (element_hasard question_answer) in
-        let points = questionne question note in
-        boucle_interactive (nb_questions - 1) (supprime_element questions question) (note + points)
+        let points = questionne question note prenom in
+        boucle_interactive (nb_questions - 1) (supprime_element questions question) prenom (note + points)
       else
-        au_revoir (note) 
+        au_revoir prenom note 
     in
   
     try
-      boucle_interactive 10 question_answer 0
+      boucle_interactive 10 question_answer prenom 0
     with
-    | Fini note -> au_revoir (note)
+    | Fini note -> au_revoir prenom (note)
     | Ban -> renvoie ()
     | End_of_file | Sys.Break ->
        let () = message "\n\n\nYou could be polite and say goodbye to me ...\n\n\n" in
-       au_revoir (0)
+       au_revoir prenom (0)
   ;;
   
   if !Sys.interactive then

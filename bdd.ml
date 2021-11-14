@@ -1,6 +1,12 @@
+(*
+On utilise des symboles qui vont être remplacé par des variables :
+$ -> Prénom
+
+*)
+
 let hello = [
   "Hello ";
-  "Hello are you ready" ;
+  "Hello are you ready ?" ;
   "Hm";
   "Good evining";
   "Hi are you ready";
@@ -11,10 +17,10 @@ let hello = [
 ];;
 
 let goodbye = [
-  "Bye !";
-  "Goodbye !";
-  "See you soon !";
-  "Good evening !"
+  "Bye $ !";
+  "Goodbye $ !";
+  "See you soon $ !";
+  "Good evening $ !"
 ];;
 
 let phrase_de_fin = [
@@ -52,15 +58,15 @@ let punchline = [
 ];;
 
 let good = [
-  "It is perfect !";
-  "Very very good !";
-  "Perfect !";
+  "It is perfect $ !";
+  "Very very good $ !";
+  "Perfect $ !";
   "Okay nice !";
   "It is totally accurate !"
 ];;
 
 let medium = [
-  "It is okay !";
+  "It is okay";
   "Yes kind of ...";
   "Okay";
   "Maybe ...";
@@ -69,11 +75,11 @@ let medium = [
 
 let not_good = [
   "It is false !";
-  "How can you say that !";
+  "How can you say that $ !";
   "You have to focus on the subject";
-  "Do you really understand the question ?";
+  "Do you really understand the question $ ?";
   "Not great ...";
-  "You have to learn your lesson"
+  "You have to learn your lesson $"
 ];;
 
 let question_answer = [
