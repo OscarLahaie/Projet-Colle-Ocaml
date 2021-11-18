@@ -44,8 +44,16 @@
      associée à aucune valeur dans la liste d'association. Le type de
      cette fonction doit être 'a list -> ('a list * 'b) list -> 'b*)
   let rec associe_d_un_element liste_de_cles liste_association =
-    failwith "associe_d_un_element not implemented"
+    match liste_de_cles with
+    | [] -> failwith("pas trouve")
+    | t :: q -> cherche t q liste_association
+    and cherche element queue liste =
+    match liste with
+    | [] -> associe_d_un_element queue liste
+    | (cle, valeur) :: q when valeur = element -> valeur
+    | _ :: q -> cherche element queue q
   ;;
+
   
   (** Traitement des chaînes de caractères **)
   

@@ -66,11 +66,11 @@ let good = [
 ];;
 
 let medium = [
-  "It is okay";
-  "Yes kind of ...";
-  "Okay";
-  "Maybe ...";
-  "Not that bad !"
+  "Not exactly";
+  "Kind of ...";
+  "mhhh ...";
+  "...";
+  "Almost !"
 ];;
 
 let not_good = [
