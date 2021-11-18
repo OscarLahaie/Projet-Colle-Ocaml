@@ -92,5 +92,5 @@ let question_answer = [
  [ ["Is the celerity of light the same in any environment ?" ; "(yes or no)"] ; ["no" ; "not" ; "ain't" ; "necesseraly"] ] ;
  [ ["Can you give me one condition required for interference to append ?"; "(Feel free to speak)"] ; ["same" ; "source" ; "light" ; "magnitude" ; "orginal" ; "phase"] ] ;
  [ ["Can you give the spacial equivalent of the signal period ?"; "(Feel free to speak)"] ; ["wavelength" ; "lambda"] ]  ;
- [ ["Can you give me the shortest value of the periodicity of the phase of a signal ?"; "(Feel free to speak)"] ; ["2" ; "two" ; "pi" ; "π"] ] 
+ [ ["Can you give me the shortest value of the periodicity of the phase of a signal ?"; "(x pi with x a real number)"] ; ["2" ; "pi"] ] 
  ] ;; 
