@@ -1,4 +1,4 @@
-#use "bdd.ml"
+open Bdd;;
  (* Début des fonctions de décompositions *)
   
  let ponctuation_char = [' '; '\n'; '.'; ','; ';'; '-'; '!'; '?'];;
@@ -199,7 +199,7 @@
      in
    
      try
-       boucle_interactive 5 question_answer prenom 0
+       boucle_interactive 10 question_answer prenom 0
      with
      | Fini note -> au_revoir prenom (note)
      | Ban -> renvoie ()

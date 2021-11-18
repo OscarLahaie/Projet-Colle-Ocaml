@@ -84,7 +84,7 @@ let not_good = [
 
 let question_answer = [
  [ ["Witch condition X need for the natural logarithm apply to X  to be definined ?"; "(Feel free to speak)"] ; ["stricly" ;  "positive" ;  "reals" ; ">" ; "0" ; "x" ] ] ;
- [ ["Can you give me the shortest value of the periodicity of cosine ?"; "(Feel free to speak)"]  ; ["2" ; "two" ; "pi" ; "π" ] ] ;
+ [ ["Can you give me the shortest value of the periodicity of cosine ?"; "(x pi with x a real number)"]  ; ["2" ; "pi" ] ] ;
  [ ["Is the derivative of a function is necessarily continuous ?" ; "(yes or no)"] ; ["no" ; "not" ; "ain't" ; "necesseraly" ; "depending"]];
  [ ["Is the hyperbolic cosine an pair function ?" ; "(yes or no)"] ; ["yes" ; "yeah" ; "indeed" ; "in" ; "fact" ; "it" ; "is"] ] ;
  [ ["Is every function own a unique primite ?" ; "(yes or no)"] ; ["no" ; "not" ; "ain't" ; "necesseraly"]] ;
