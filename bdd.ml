@@ -37,7 +37,7 @@ let phrase_de_fin = [
 let banning_phrase = [
   "I never want to see you again !";
   "I never saw someone that bad !";
-  "You should be working in a factory";
+  "You are so slow that you should work in the French administration";
   "Did you already thought about leaving ?";
   ""
 ];;
@@ -54,7 +54,7 @@ let punchline = [
   "Even the PCSI are better ! No excuse me even the PTSI are better";
   "I know why the Maths level is so low in France it is because of you";
   "Are you really coming during the lessons";
-  "Why are you here ! You should be in a Factory !"
+  "Why are you even doing here ..."
 ];;
 
 let good = [
@@ -62,7 +62,8 @@ let good = [
   "Very very good $ !";
   "Perfect $ !";
   "Okay nice !";
-  "It is totally accurate !"
+  "It is totally accurate !";
+  "Well done !"
 ];;
 
 let medium = [
@@ -92,5 +93,8 @@ let question_answer = [
  [ ["Is the celerity of light the same in any environment ?" ; "(yes or no)"] ; ["no" ; "not" ; "ain't" ; "necesseraly"] ] ;
  [ ["Can you give me one condition required for interference to append ?"; "(Feel free to speak)"] ; ["same" ; "source" ; "light" ; "magnitude" ; "orginal" ; "phase"] ] ;
  [ ["Can you give the spacial equivalent of the signal period ?"; "(Feel free to speak)"] ; ["wavelength" ; "lambda"] ]  ;
- [ ["Can you give me the shortest value of the periodicity of the phase of a signal ?"; "(x pi with x a real number)"] ; ["2" ; "pi"] ] 
+ [ ["Can you give me the shortest value of the periodicity of the phase of a signal ?"; "(x pi with x a real number)"] ; ["2" ; "pi"] ];
+ [ ["What is an algorithm ? "; "(Feel free to speak)"] ; ["automatic"; "mechanically"; "instructions"; "concept"] ];
+ [ ["What are the three steps needed to analyze an algorithm ?" ; "(Feel free to speak)"] ; ["complexity"; "ending"; "end"; "accuracy"; "correctness"]];
+ [ ["What is the definition of the complexity of an algorithm ?" ; ("(Feel free to speak)")] ; ["elementary"; "operations"; "size"; "input"] ]
  ] ;; 
